@@ -9,9 +9,8 @@
     "dev": "pnpm -r dev",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx}\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Edison.Cheung",
+  "license": "MIT",
   "devDependencies": {
     "prettier": "^3.4.2"
   }
