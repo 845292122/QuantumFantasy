@@ -1,0 +1,14 @@
+{
+  "name": "@qf/schema",
+  "version": "1.0.0",
+  "description": "zod验证类型",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  }
+}
