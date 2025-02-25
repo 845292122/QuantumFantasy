@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
-import type { TenantInfo, TenantPageParam } from '@qf/schema'
+import type { TenantType } from '@qf/schema'
 import { convertPageParam, PrismaHelper } from '../../helper/prisma.helper'
 import { BizError } from '../../common/error'
 import { httpOk } from '../../app'
 
 // 创建租户
 const create = async (req: Request, res: Response) => {
-  const tenantInfo: TenantInfo = req.body
+  const tenantInfo: TenantType.Info = req.body
 
   const tenantExist = await PrismaHelper.tenant.findFirst({
     where: {
@@ -26,7 +26,7 @@ const create = async (req: Request, res: Response) => {
 
 // 修改租户
 const modify = async (req: Request, res: Response) => {
-  const tenantInfo: TenantInfo = req.body
+  const tenantInfo: TenantType.Info = req.body
 
   const tenantExist = await PrismaHelper.tenant.findFirst({
     where: {
@@ -67,7 +67,7 @@ const remove = async (req: Request, res: Response) => {
 
 // 分页查询
 const page = async (req: Request, res: Response) => {
-  const { pageNo, pageSize, companyName, contactName, status } = req.query as unknown as TenantPageParam
+  const { pageNo, pageSize, companyName, contactName, status } = req.query as unknown as TenantType.PageParam
   const pageParam = convertPageParam(pageNo, pageSize)
   const condition = {
     delFlag: 0,
