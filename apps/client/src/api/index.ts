@@ -102,5 +102,4 @@ export default new Request()
 // * 导出api模块
 export * from './auth.api'
 export * from './user.api'
-export * from './perm.api'
 export * from './tenant.api'
