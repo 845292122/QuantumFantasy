@@ -31,5 +31,10 @@ export const UserSchema = {
   pageQuery
 }
 
-export type UserInfo = z.infer<typeof UserSchema.input>['body']
-export type UserPageParam = z.infer<typeof UserSchema.pageQuery>['query']
+// export type UserInfo = z.infer<typeof UserSchema.input>['body']
+// export type UserPageParam = z.infer<typeof UserSchema.pageQuery>['query']
+
+export namespace UserType {
+  export type Info = z.infer<typeof UserSchema.input>['body']
+  export type PageParam = z.infer<typeof UserSchema.pageQuery>['query']
+}

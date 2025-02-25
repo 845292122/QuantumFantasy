@@ -38,5 +38,7 @@ export const TenantSchema = {
   pageQuery
 }
 
-export type TenantInfo = z.infer<typeof TenantSchema.input>['body']
-export type TenantPageParam = z.infer<typeof TenantSchema.pageQuery>['query']
+export namespace TenantType {
+  export type Info = z.infer<typeof TenantSchema.input>['body']
+  export type PageParam = z.infer<typeof TenantSchema.pageQuery>['query']
+}
