@@ -54,6 +54,9 @@ importers:
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.21.0
+      '@qf/schema':
+        specifier: workspace:^
+        version: link:../../packages/schema
       '@types/node':
         specifier: ^22.10.10
         version: 22.13.5

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const userInputSchema = z.object({
+const input = z.object({
   body: z.object({
     id: z.coerce.number().optional(),
     tenantID: z.coerce.number(),
@@ -17,7 +17,7 @@ export const userInputSchema = z.object({
   })
 })
 
-export const userPageSchema = z.object({
+const pageQuery = z.object({
   query: z.object({
     pageNo: z.coerce.number().default(1),
     pageSize: z.coerce.number().default(10),
@@ -26,5 +26,10 @@ export const userPageSchema = z.object({
   })
 })
 
-export type UserInputType = z.infer<typeof userInputSchema>['body']
-export type UserPageType = z.infer<typeof userPageSchema>['query']
+export const UserSchema = {
+  input,
+  pageQuery
+}
+
+export type UserInfo = z.infer<typeof UserSchema.input>['body']
+export type UserPageParam = z.infer<typeof UserSchema.pageQuery>['query']
