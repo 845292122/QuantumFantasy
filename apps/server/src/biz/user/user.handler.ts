@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { UserInputType, UserPageType } from '@qf/schema'
+import type { UserInfo, UserPageParam } from '@qf/schema'
 import { convertPageParam, PrismaHelper } from '../../helper/prisma.helper'
 import { BizError } from '../../common/error'
 import bcrypt from 'bcryptjs'
@@ -7,7 +7,7 @@ import { Constant } from '../../common/constant'
 import { httpOk } from '../../app'
 
 const create = async (req: Request, res: Response) => {
-  const userInfo: UserInputType = req.body
+  const userInfo: UserInfo = req.body
 
   const userExist = await PrismaHelper.user.findFirst({
     where: {
@@ -28,7 +28,7 @@ const create = async (req: Request, res: Response) => {
 }
 
 const modify = async (req: Request, res: Response) => {
-  const userInfo: UserInputType = req.body
+  const userInfo: UserInfo = req.body
 
   const userExist = await PrismaHelper.user.findFirst({
     where: {
@@ -69,7 +69,7 @@ const remove = async (req: Request, res: Response) => {
 }
 
 const page = async (req: Request, res: Response) => {
-  const { pageNo, pageSize, nickname, status } = req.query as unknown as UserPageType
+  const { pageNo, pageSize, nickname, status } = req.query as unknown as UserPageParam
   const pageParam = convertPageParam(pageNo, pageSize)
   const condition = {
     delFlag: 0,
